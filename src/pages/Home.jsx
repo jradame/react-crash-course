@@ -18,10 +18,11 @@ const pixels = "3px";
 
   return (
     <div style={{ border: `${pixels} solid black` }}>
-      <div>Id</div>
-      <div>Name</div>
-      <div>Username</div>
-      <div>Email</div>
+      <div>{users[0]?.id}</div>
+      <div>{users[0]?.name}</div>
+      <div>{users[0]?.email}</div>
+      <div>{users[0]?.username}</div>
+
     </div>
 
 
