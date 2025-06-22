@@ -1,42 +1,40 @@
-import React, { useState } from "react";
-import Todo from "./components/Todo.jsx";
-import Title from "./components/Title.jsx";
-import Modal from "./components/Modal.jsx";
-import Counter from "./components/Counter.jsx";
+import "./App.css";
+import { Router, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home.jsx";
+import About from "./pages/About.jsx";
+import Contact from "./pages/Contact.jsx";
+
 
 function App() {
-  const [showModal, setModal] = useState(false);
-
-  const onTodoDelete = () => {
-    console.log("Todo deleted");
-  };
-
   return (
     <div>
-      <Title />
-
-      <input
-        type="text"
-        onChange={(event) => {
-          console.log(event.target.value);
-        }}
-      />
-
-      <button onClick={() => setModal(true)}>Add todo</button>
-
-      <div className="todo__wrapper">
-        <Todo onTodoDelete={onTodoDelete} title="Finish Frontend Simplified" />
-        <Todo onTodoDelete={onTodoDelete} title="Finish Interview Section" />
-        <Todo onTodoDelete={onTodoDelete} title="Finish React Section" />
-      </div>
-
-      {showModal && <Modal title="Confirm Delete?" />}
-
-    
+      <Router>
+        <nav>
+          <a href="/">Home</a> 
+          <a href="/about">About</a> 
+          <a href="/contact">Contact</a>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
 
+ 
 export default App;
+
+
+
+
+
+
+
+
+
 
 
